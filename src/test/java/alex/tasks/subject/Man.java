@@ -1,11 +1,14 @@
-package alex.tasks.test;
+package alex.tasks.subject;
 
 import java.util.List;
 
-public class Man {
+public class Man{
     private String name;
     private int age;
     private List<String> favoriteBooks;
+
+    public Man() {
+    }
 
     public Man(String name, int age, List<String> favoriteBooks) {
         this.name = name;
