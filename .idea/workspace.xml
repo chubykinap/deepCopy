@@ -4,22 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6b64aed5-6002-4ac2-8238-91ed60a9b7f1" name="Changes" comment="1.0">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/alex/tasks/CopyUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/alex/tasks/ICloner.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/alex/tasks/ICollectionCloner.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/alex/tasks/ListCollectionCloner.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/alex/tasks/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/alex/tasks/Supplier.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/alex/tasks/test/Man.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/alex/tasks/CopyUtilsTest.java" afterDir="false" />
+    <list default="true" id="6b64aed5-6002-4ac2-8238-91ed60a9b7f1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/alex/tasks/ClassCloner.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/alex/tasks/CloneException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/alex/tasks/ListCloner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/alex/tasks/CopyUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alex/tasks/CopyUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/alex/tasks/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alex/tasks/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/alex/tasks/test/Man.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,14 +24,20 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="JUnit3 Test Class" />
         <option value="Interface" />
         <option value="Class" />
-        <option value="JUnit3 Test Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="80daa68e87a38ba95ce8ea93285800adec35e881" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -54,25 +55,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit3",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit3": "junit.framework.TestCase",
-    "settings.editor.selected.configurable": "shared-indexes"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit3&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit3&quot;: &quot;junit.framework.TestCase&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;shared-indexes&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="alex.tasks" />
+    </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="junit.framework.TestCase" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="alex.tasks" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="alex.tasks" />
+      <recent name="alex.tasks.subject" />
+    </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Unnamed">
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="alex.tasks.Main" />
       <module name="deepCopy" />
@@ -80,6 +88,86 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="CopyUtilsTest.testManClass" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="deepCopy" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="alex.tasks.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="alex.tasks" />
+      <option name="MAIN_CLASS_NAME" value="alex.tasks.CopyUtilsTest" />
+      <option name="METHOD_NAME" value="testManClass" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CopyUtilsTest.testNestedList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="deepCopy" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="alex.tasks.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="alex.tasks" />
+      <option name="MAIN_CLASS_NAME" value="alex.tasks.CopyUtilsTest" />
+      <option name="METHOD_NAME" value="testNestedList" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CopyUtilsTest.testNullObject" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="deepCopy" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="alex.tasks.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="alex.tasks" />
+      <option name="MAIN_CLASS_NAME" value="alex.tasks.CopyUtilsTest" />
+      <option name="METHOD_NAME" value="testNullObject" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CopyUtilsTest.testParentChild" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="deepCopy" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="alex.tasks.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="alex.tasks" />
+      <option name="MAIN_CLASS_NAME" value="alex.tasks.CopyUtilsTest" />
+      <option name="METHOD_NAME" value="testParentChild" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Unnamed" />
+      <item itemvalue="JUnit.CopyUtilsTest.testNestedList" />
+      <item itemvalue="JUnit.CopyUtilsTest.testNullObject" />
+      <item itemvalue="JUnit.CopyUtilsTest.testParentChild" />
+      <item itemvalue="JUnit.CopyUtilsTest.testManClass" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.CopyUtilsTest.testManClass" />
+        <item itemvalue="JUnit.CopyUtilsTest.testNullObject" />
+        <item itemvalue="JUnit.CopyUtilsTest.testNestedList" />
+        <item itemvalue="JUnit.CopyUtilsTest.testParentChild" />
+        <item itemvalue="JUnit.CopyUtilsTest.testManClass" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -90,6 +178,14 @@
       <option name="presentableId" value="Default" />
       <updated>1679914640749</updated>
     </task>
+    <task id="LOCAL-00001" summary="1.0">
+      <created>1680017163220</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1680017163220</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -97,7 +193,34 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="master" />
+                </option>
+              </RecentGroup>
+            </list>
           </value>
         </entry>
       </map>
@@ -105,7 +228,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="1.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.0" />
+    <MESSAGE value="2.0 swap to objenesis lib" />
+    <option name="LAST_COMMIT_MESSAGE" value="2.0 swap to objenesis lib" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

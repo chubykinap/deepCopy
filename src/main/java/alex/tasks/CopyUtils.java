@@ -1,15 +1,13 @@
 package alex.tasks;
 
-import java.lang.reflect.Field;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.stream.Stream;
 
 public class CopyUtils {
     private final Set<Class<?>> primitives = new HashSet<>();
 
-    public ICloner deepClone = this::innerClone;
+    private final ICloner deepClone = this::innerClone;
 
     public CopyUtils() {
         primitives.add(Integer.class);
@@ -36,66 +34,19 @@ public class CopyUtils {
     }
 
     private <T> ICloner cloneResolve(T object) {
+        if (object == null) {
+            throw new NullPointerException("Cannot clone null object!");
+        }
         ICloner cloner;
         Class<?> oClass = object.getClass();
         if (primitives.contains(oClass))
             return null;
         else {
             if (object instanceof List<?>)
-                cloner = new ListCloner();
+                cloner = new ListCloner(deepClone);
             else
-                cloner = new ClassCloner();
+                cloner = new ClassCloner(deepClone);
         }
         return cloner;
-    }
-
-    private class ListCloner implements ICloner {
-        ICollectionCloner cCloner;
-        ICloner cloner;
-
-        public ListCloner() {
-            cCloner = new ListCollectionCloner();
-            this.cloner = deepClone;
-        }
-
-        @Override
-        public <T> T cloneValue(T o) {
-            try {
-                return (T) cCloner.cloneValue(o, cloner);
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
-        }
-    }
-
-    private class ClassCloner implements ICloner {
-        @Override
-        public <T> T cloneValue(T o) {
-            try {
-                T clone = (T) new Supplier(o.getClass()).createInstance();
-                Field[] fields = getCloneFields(o.getClass());
-                for (Field field : fields) {
-                    if (!field.canAccess(o))
-                        field.setAccessible(true);
-                    Object val = field.get(o);
-                    Object valClone = innerClone(val);
-                    field.set(clone, valClone);
-                }
-                return clone;
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
-        }
-
-        private Field[] getCloneFields(Class<?> o) {
-            Field[] fields = o.getDeclaredFields();
-
-            Class<?> parent = o.getSuperclass();
-            if (parent != null && !parent.equals(Object.class)) {
-                Field[] parentFields = getCloneFields(parent);
-                fields = Stream.concat(Stream.of(fields), Stream.of(parentFields)).toArray(Field[]::new);
-            }
-            return fields;
-        }
     }
 }
