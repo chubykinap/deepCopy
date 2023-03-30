@@ -1,40 +1,17 @@
 package alex.tasks.subject;
 
-import java.util.List;
+import java.util.Objects;
 
-public class Parent  extends SuperClass{
+public class Parent {
+    private int parentInt;
     private String parentString;
 
-    private int parentInt;
-
-    private double parentDouble;
-
-    private List<Child> children;
-
-    public Parent(String superString, int superInt,
-                  String parentString, int parentInt, double parentDouble) {
-        super(superString,superInt);
-        this.parentString = parentString;
+    public Parent(int parentInt, String parentString) {
         this.parentInt = parentInt;
-        this.parentDouble = parentDouble;
-    }
-
-    public void addChild(Child child){
-        if (!children.contains(child)){
-            children.add(child);
-        }
-    }
-
-    public void removeChild(Child child){
-        children.remove(child);
-    }
-
-    public String getParentString() {
-        return parentString;
-    }
-
-    public void setParentString(String parentString) {
         this.parentString = parentString;
+    }
+
+    public Parent() {
     }
 
     public int getParentInt() {
@@ -45,19 +22,24 @@ public class Parent  extends SuperClass{
         this.parentInt = parentInt;
     }
 
-    public double getParentDouble() {
-        return parentDouble;
+    public String getParentString() {
+        return parentString;
     }
 
-    public void setParentDouble(double parentDouble) {
-        this.parentDouble = parentDouble;
+    public void setParentString(String parentString) {
+        this.parentString = parentString;
     }
 
-    public List<Child> getChildren() {
-        return children;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Parent parent = (Parent) o;
+        return parentInt == parent.parentInt && parentString.equals(parent.parentString);
     }
 
-    public void setChildren(List<Child> children) {
-        this.children = children;
+    @Override
+    public int hashCode() {
+        return Objects.hash(parentInt, parentString);
     }
 }

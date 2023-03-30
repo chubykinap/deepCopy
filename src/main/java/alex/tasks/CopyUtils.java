@@ -7,7 +7,7 @@ import java.util.Set;
 public class CopyUtils {
     private final Set<Class<?>> primitives = new HashSet<>();
 
-    public ICloner deepClone = this::innerClone;
+    private final ICloner deepClone = this::innerClone;
 
     public CopyUtils() {
         primitives.add(Integer.class);
@@ -34,6 +34,9 @@ public class CopyUtils {
     }
 
     private <T> ICloner cloneResolve(T object) {
+        if (object == null) {
+            throw new NullPointerException("Cannot clone null object!");
+        }
         ICloner cloner;
         Class<?> oClass = object.getClass();
         if (primitives.contains(oClass))
@@ -46,8 +49,4 @@ public class CopyUtils {
         }
         return cloner;
     }
-
-
-
-
 }

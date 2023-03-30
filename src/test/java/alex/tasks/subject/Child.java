@@ -1,37 +1,28 @@
 package alex.tasks.subject;
 
-import java.util.List;
+import java.util.Objects;
 
-public class Child {
+public class Child extends Parent {
+    private int childInt;
     private String childString;
 
-    private int childInt;
-
-    private double childDouble;
-
-    private List<Parent> parents;
-
-    public Child(String childString, int childInt, double childDouble) {
-        this.childString = childString;
+    public Child(int parentInt, String parentString, int childInt, String childString) {
+        super(parentInt, parentString);
         this.childInt = childInt;
-        this.childDouble = childDouble;
+        this.childString = childString;
     }
 
-    public void addParent(Parent parent) {
-        if (!parents.contains(parent)) {
-            parents.add(parent);
-        }
+    public Child(int childInt, String childString) {
+        this.childInt = childInt;
+        this.childString = childString;
     }
 
-    public void removeParent(Parent parent){
-        parents.remove(parent);
+    public Child() {
     }
 
-    public String getChildString() {
-        return childString;
-    }
-
-    public void setChildString(String childString) {
+    public Child(Parent parent, int childInt, String childString) {
+        super(parent.getParentInt(), parent.getParentString());
+        this.childInt = childInt;
         this.childString = childString;
     }
 
@@ -43,19 +34,24 @@ public class Child {
         this.childInt = childInt;
     }
 
-    public double getChildDouble() {
-        return childDouble;
+    public String getChildString() {
+        return childString;
     }
 
-    public void setChildDouble(double childDouble) {
-        this.childDouble = childDouble;
+    public void setChildString(String childString) {
+        this.childString = childString;
     }
 
-    public List<Parent> getParents() {
-        return parents;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Child child = (Child) o;
+        return childInt == child.childInt && childString.equals(child.childString);
     }
 
-    public void setParents(List<Parent> parents) {
-        this.parents = parents;
+    @Override
+    public int hashCode() {
+        return Objects.hash(childInt, childString);
     }
 }
