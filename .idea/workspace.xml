@@ -4,17 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6b64aed5-6002-4ac2-8238-91ed60a9b7f1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/alex/tasks/ClassCloner.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/alex/tasks/CloneException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/alex/tasks/ListCloner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="6b64aed5-6002-4ac2-8238-91ed60a9b7f1" name="Changes" comment="1.1 class split">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/alex/tasks/CopyUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alex/tasks/CopyUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/alex/tasks/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alex/tasks/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/alex/tasks/test/Man.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/alex/tasks/Supplier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alex/tasks/Supplier.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,6 +81,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="CopyUtilsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="deepCopy" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="alex.tasks.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="alex.tasks" />
+      <option name="MAIN_CLASS_NAME" value="alex.tasks.CopyUtilsTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="CopyUtilsTest.testManClass" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="deepCopy" />
       <extension name="coverage">
@@ -154,6 +162,7 @@
     </configuration>
     <list>
       <item itemvalue="Application.Unnamed" />
+      <item itemvalue="JUnit.CopyUtilsTest" />
       <item itemvalue="JUnit.CopyUtilsTest.testNestedList" />
       <item itemvalue="JUnit.CopyUtilsTest.testNullObject" />
       <item itemvalue="JUnit.CopyUtilsTest.testParentChild" />
@@ -162,10 +171,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.CopyUtilsTest.testManClass" />
-        <item itemvalue="JUnit.CopyUtilsTest.testNullObject" />
         <item itemvalue="JUnit.CopyUtilsTest.testNestedList" />
+        <item itemvalue="JUnit.CopyUtilsTest" />
+        <item itemvalue="JUnit.CopyUtilsTest.testNullObject" />
         <item itemvalue="JUnit.CopyUtilsTest.testParentChild" />
-        <item itemvalue="JUnit.CopyUtilsTest.testManClass" />
       </list>
     </recent_temporary>
   </component>
@@ -185,7 +194,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680017163220</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="1.1 class split">
+      <created>1680178946775</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1680178946775</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -199,7 +215,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="master" />
+                        <option value="HEAD" />
                       </list>
                     </value>
                   </entry>
@@ -229,10 +245,30 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="1.0" />
     <MESSAGE value="2.0 swap to objenesis lib" />
-    <option name="LAST_COMMIT_MESSAGE" value="2.0 swap to objenesis lib" />
+    <MESSAGE value="1.1 class split" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.1 class split" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/alex/tasks/Supplier.java</url>
+          <line>41</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/alex/tasks/Supplier.java</url>
+          <line>27</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
     <select />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/deepCopy$Unnamed.ic" NAME="Unnamed Coverage Results" MODIFIED="1680179900831" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

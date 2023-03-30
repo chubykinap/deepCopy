@@ -3,21 +3,43 @@ package alex.tasks;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
 
 public class Supplier<T> {
     private final Constructor<T> constructor;
 
     public Supplier(Class<T> type) {
-        try {
-            this.constructor = type.getConstructor();
-        } catch (NoSuchMethodException e) {
-            throw new RuntimeException(e);
-        }
+        Constructor<T>[] constructors = (Constructor<T>[]) type.getDeclaredConstructors();
+        this.constructor = Arrays.stream(constructors)
+                .min(Comparator.comparing(x -> x.getParameterTypes().length))
+                .orElseThrow(NoSuchMethodError::new);
+        this.constructor.setAccessible(true);
     }
 
-    public T createInstance(){
+    public T createInstance() {
         try {
-            return constructor.newInstance();
+            Class<?>[] params = constructor.getParameterTypes();
+            Object[] args = new Object[params.length];
+            int i = 0;
+            for (Class<?> cl : params) {
+                if (cl.isPrimitive()) {
+                    if (cl.equals(Boolean.TYPE))
+                        args[i] = true;
+                    else
+                        args[i] = 0;
+                } else if (cl.equals(String.class)) {
+                    args[i] = "";
+                } else if (cl.getName().contains("List")) {
+                    args[i] = List.of();
+                } else {
+                    Supplier supplier = new Supplier(cl);
+                    args[i] = supplier.createInstance();
+                }
+                i++;
+            }
+            return constructor.newInstance(args);
         } catch (InstantiationException | IllegalAccessException | InvocationTargetException e) {
             throw new RuntimeException(e);
         }
