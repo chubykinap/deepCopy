@@ -1,15 +1,25 @@
 package alex.tasks;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import alex.tasks.ClonerClass.ClassCloner;
+import alex.tasks.ClonerClass.CollectionCloner;
+import alex.tasks.ClonerClass.ICloner;
+import alex.tasks.ClonerException.CloneException;
+import alex.tasks.JavaCollectionCloner.*;
+
+import java.util.*;
 
 public class CopyUtils {
     private final Set<Class<?>> primitives = new HashSet<>();
+    private final HashMap<Class<?>, ICollectionCloner> supported = new HashMap<>();
 
     private final ICloner deepClone = this::innerClone;
 
     public CopyUtils() {
+        addPrimitives();
+        addSupportedCloneable();
+    }
+
+    private void addPrimitives() {
         primitives.add(Integer.class);
         primitives.add(Short.class);
         primitives.add(Long.class);
@@ -21,12 +31,22 @@ public class CopyUtils {
         primitives.add(String.class);
     }
 
-    public <T> T deepCopy(T object) {
+    private void addSupportedCloneable() {
+        supported.put(ArrayList.class, new ArrayListCollectionCloner());
+        supported.put(LinkedList.class, new LinkedListCollectionCloner());
+        supported.put(HashMap.class, new HashMapCollectionCloner());
+        supported.put(HashSet.class, new HashSetCollectionCloner());
+        supported.put(Vector.class, new VectorCollectionCloner());
+        supported.put(TreeSet.class, new TreeSetCollectionCloner());
+        supported.put(TreeMap.class, new TreeMapCollectionCloner());
+    }
+
+    public <T> T deepCopy(T object) throws Exception {
         if (object == null) return null;
         return innerClone(object);
     }
 
-    private <T> T innerClone(T o) {
+    private <T> T innerClone(T o) throws Exception {
         ICloner cloner = cloneResolve(o);
         if (cloner == null)
             return o;
@@ -42,8 +62,11 @@ public class CopyUtils {
         if (primitives.contains(oClass))
             return null;
         else {
-            if (object instanceof List<?>)
-                cloner = new ListCloner(deepClone);
+            if (supported.containsKey(oClass))
+                cloner = new CollectionCloner(deepClone,
+                        supported.get(oClass));
+            else if (object instanceof Collection)
+                throw new CloneException(oClass + " is not supported for this deep cloning");
             else
                 cloner = new ClassCloner(deepClone);
         }

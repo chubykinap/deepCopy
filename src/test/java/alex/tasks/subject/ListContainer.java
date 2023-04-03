@@ -5,19 +5,16 @@ import java.util.List;
 import java.util.Objects;
 
 public class ListContainer {
-    private List<ListObject> list = new ArrayList<>();
+    private final List<ListObject> list = new ArrayList<>();
 
     public ListContainer(int count) {
         while (count-- > 0)
             list.add(new ListObject(count, true));
     }
 
-    public List<ListObject> getList() {
-        return list;
-    }
-
-    public void setList(List<ListObject> list) {
-        this.list = list;
+    public ListContainer(int begin, int count) {
+        while (count-- > 0)
+            list.add(new ListObject(begin++, true));
     }
 
     @Override
@@ -35,25 +32,13 @@ public class ListContainer {
 
     private static class ListObject {
         private final int val;
-        private List<ListObject> list = new ArrayList<>();
+        private final List<ListObject> list = new ArrayList<>();
 
         private ListObject(int val, boolean fillList) {
             this.val = val;
             if (fillList)
                 for (int i = 0; i < val; i++)
                     list.add(new ListObject(val, false));
-        }
-
-        public int getVal() {
-            return val;
-        }
-
-        public List<ListObject> getList() {
-            return list;
-        }
-
-        public void setList(List<ListObject> list) {
-            this.list = list;
         }
 
         @Override

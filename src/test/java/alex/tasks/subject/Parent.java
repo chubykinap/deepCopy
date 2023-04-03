@@ -18,16 +18,12 @@ public class Parent {
         return parentInt;
     }
 
-    public void setParentInt(int parentInt) {
-        this.parentInt = parentInt;
-    }
-
     public String getParentString() {
         return parentString;
     }
 
-    public void setParentString(String parentString) {
-        this.parentString = parentString;
+    public Parent getParent() {
+        return this;
     }
 
     @Override

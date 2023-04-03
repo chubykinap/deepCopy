@@ -1,4 +1,7 @@
-package alex.tasks;
+package alex.tasks.ClonerClass;
+
+import alex.tasks.ClonerException.CloneException;
+import alex.tasks.Supplier;
 
 import java.lang.reflect.Field;
 import java.util.stream.Stream;
@@ -11,6 +14,7 @@ public class ClassCloner implements ICloner {
     }
 
     @Override
+    @SuppressWarnings({"unchecked", "rawtypes"})
     public <T> T cloneValue(T o) {
         try {
             T clone = (T) new Supplier(o.getClass()).createInstance();
@@ -24,7 +28,9 @@ public class ClassCloner implements ICloner {
             }
             return clone;
         } catch (IllegalAccessException e) {
-            throw new CloneException(e);
+            throw new CloneException(e.getMessage());
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
     }
 

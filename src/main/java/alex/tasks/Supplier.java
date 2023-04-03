@@ -4,12 +4,13 @@ package alex.tasks;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Comparator;
-import java.util.List;
 
 public class Supplier<T> {
     private final Constructor<T> constructor;
 
+    @SuppressWarnings("unchecked")
     public Supplier(Class<T> type) {
         Constructor<T>[] constructors = (Constructor<T>[]) type.getDeclaredConstructors();
         this.constructor = Arrays.stream(constructors)
@@ -18,7 +19,8 @@ public class Supplier<T> {
         this.constructor.setAccessible(true);
     }
 
-    public T createInstance() {
+    @SuppressWarnings({"unchecked", "rawtypes"})
+    public T createInstance() throws NoSuchMethodException {
         try {
             Class<?>[] params = constructor.getParameterTypes();
             Object[] args = new Object[params.length];
@@ -31,9 +33,9 @@ public class Supplier<T> {
                         args[i] = 0;
                 } else if (cl.equals(String.class)) {
                     args[i] = "";
-                } else if (cl.getName().contains("List")) {
-                    args[i] = List.of();
-                } else {
+                } else if (Collection.class.isAssignableFrom(cl))
+                    args[i] = cl.getDeclaredConstructor().newInstance();
+                else {
                     Supplier supplier = new Supplier(cl);
                     args[i] = supplier.createInstance();
                 }

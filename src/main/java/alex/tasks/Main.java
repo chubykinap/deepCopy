@@ -1,6 +1,7 @@
 package alex.tasks;
 
 import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Main {
@@ -8,35 +9,39 @@ public class Main {
         Man man = new Man(
                 "Name",
                 1,
-                Arrays.asList("Harry", "Potter"));
+                new ArrayList<>(Arrays.asList("Harry", "Potter")));
         CopyUtils cu = new CopyUtils();
         try {
             Man clone = cu.deepCopy(man);
-            System.out.println("Cloning completed");
-            if (compareObjects(man,clone))
-                System.out.println("Objects are identical");
-            else
-                System.out.println("Objects are different");
+
+            compareObjects(man, clone);
         } catch (Exception e) {
             System.out.println(e.getMessage());
-            e.printStackTrace();
         }
     }
 
-    private static <T> boolean compareObjects(T o1, T o2) {
+    private static <T> void compareObjects(T o1, T o2) {
         Field[] fields = o1.getClass().getDeclaredFields();
-
+        boolean ident = true;
         for (Field field : fields) {
-            if (!field.canAccess(o1)){
+            if (!field.canAccess(o1)) {
                 field.setAccessible(true);
             }
             try {
                 if (!field.get(o1).equals(field.get(o2)))
-                    return false;
+                    ident = false;
             } catch (IllegalAccessException e) {
                 throw new RuntimeException(e);
             }
         }
-        return true;
+        System.out.println("Cloning completed");
+        if (o1.equals(o2))
+            System.out.println("Objects are identical");
+        else
+            System.out.println("Objects are different");
+        if (ident)
+            System.out.println("Objects parameters are identical");
+        else
+            System.out.println("Objects are different");
     }
 }
